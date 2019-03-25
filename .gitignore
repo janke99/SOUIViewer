@@ -1,0 +1,60 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+.vs/
+bin/
+doc/
+ipch/
+obj/
+tools/
+Debug/
+Release/
+*.lo
+*.o
+*.obj
+*.cache
+*.lastbuildstate
+
+# Precompiled Headers
+*.gch
+*.pch
+*.sdf
+*.opensdf
+*.pdb
+*.suo
+*.opendb
+*.aps
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# log file
+*.tlog
+*.log
+
+# Executables
+*.exe
+*.out
+*.app
+*.dll
+
+# bin data
+*.zip
+*.7z
+
+# nuGet packages
+packages/

@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{ef257e49-e44f-4bd1-864e-7716b8a0d8ea}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0fadd019-09e1-4326-a2f0-ca661432aa84}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{3088572d-5d5c-4241-9ea7-831b75438987}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;manifest</Extensions>
+    </Filter>
+    <Filter Include="SoUI Resource">
+      <UniqueIdentifier>{417e2419-6d8b-4b89-8b2e-c5308cc5a5f7}</UniqueIdentifier>
+      <Extensions>idx;xml;png;gif;jpg;ico;lua;bmp</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{1a2ff2e1-323c-4195-9dd0-21b308dd4667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{248fc764-4f76-4da9-9c62-0ddac095cb9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control">
+      <UniqueIdentifier>{ff714d6c-c218-45f1-aeb1-62cfb8192de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Control\gif">
+      <UniqueIdentifier>{0f826069-7897-4cb2-9e2b-5043692d3f27}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="license.txt" />
+    <Text Include="readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SOUIViewer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Common\Utils.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog\ViewDlg.cpp">
+      <Filter>Dialog</Filter>
+    </ClCompile>
+    <ClCompile Include="AppManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SMatrixWindow.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\gif\SGifPlayer.cpp">
+      <Filter>Control\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\gif\SSkinAPNG.cpp">
+      <Filter>Control\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\gif\SSkinGif.cpp">
+      <Filter>Control\gif</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SImageMaskWnd.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SIECtrl.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SImageEx.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SDocHostUIHandler.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SSkinMutiFrameImg.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SOUIViewer.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Singleton.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\Utils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog\ViewDlg.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
+    <ClInclude Include="AppManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Common\CmdLine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SMatrixWindow.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SAniImgFrame.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SGifPlayer.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinAPNG.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinGif.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SVscrollbar.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SSkinNewScrollBar.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SImageMaskWnd.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SIECtrl.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SImageEx.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SDocHostUIHandler.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\SSkinMutiFrameImg.h">
+      <Filter>Control</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\soui_res.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="uires\uidef\init.xml">
+      <Filter>SoUI Resource</Filter>
+    </Xml>
+    <Xml Include="uires\values\color.xml">
+      <Filter>SoUI Resource</Filter>
+    </Xml>
+    <Xml Include="uires\values\skin.xml">
+      <Filter>SoUI Resource</Filter>
+    </Xml>
+    <Xml Include="uires\values\string.xml">
+      <Filter>SoUI Resource</Filter>
+    </Xml>
+    <Xml Include="uires\xml\dlg_main.xml">
+      <Filter>SoUI Resource</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="uires\image\soui.ico">
+      <Filter>SoUI Resource</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="uires\uires.idx">
+      <Filter>SoUI Resource</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>
