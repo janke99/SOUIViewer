@@ -1,16 +1,19 @@
 #include "stdafx.h"
 #include "ViewDlg.h"
 #include "../AppManager.h"
+#include <event/NotifyCenter.h>
 
 
-CViewDlg::CViewDlg(LPCTSTR pszResName)
+CViewDlg::CViewDlg(LPCTSTR pszResName, BOOL bIsMain)
 	:SHostWnd(pszResName)
 {
 	m_bLayoutInited = FALSE;
+	m_bIsMain = bIsMain;
 }
 
 CViewDlg::~CViewDlg()
 {
+
 }
 
 int CViewDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -21,17 +24,24 @@ int CViewDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 BOOL CViewDlg::OnInitDialog(HWND wndFocus, LPARAM lInitParam)
 {
-	LONG lExStyle = GetWindowLong(GWL_EXSTYLE);
-	lExStyle |= WS_EX_ACCEPTFILES;
-	SetWindowLong(GWL_EXSTYLE, lExStyle);
+	ModifyStyleEx(0, WS_EX_ACCEPTFILES, 0);
+	if (!m_bIsMain)
+		m_hostAttr.SetAttribute(_T("wndType"), _T("normal"), FALSE);
 
 	m_bLayoutInited = TRUE;
 	return 0;
 }
 
+void CViewDlg::OnFinalMessage(HWND hWnd)
+{
+	__super::OnFinalMessage(hWnd);
+}
+
 void CViewDlg::OnClose()
 {
-	CSimpleWnd::DestroyWindow();
+	SetMsgHandled(FALSE);
+	CAppManager::getSingleton().PopDlg(this, TRUE);
+	if (IsWindow()) CSimpleWnd::DestroyWindow();
 }
 
 void CViewDlg::OnMaximize()
@@ -79,7 +89,9 @@ void CViewDlg::OnDropFiles(HDROP hDropInfo)
 	{
 		// 只取第一个
 		::DragQueryFile(hDropInfo, 0, szPath, _MAX_PATH);
-		CAppManager::getSingleton().ReloadSkin(szPath);
+		SRUNONUI(
+			CAppManager::getSingleton().LoadSkin(szPath);
+		);
 	}
 	::DragFinish(hDropInfo);
 }
@@ -93,12 +105,12 @@ void CViewDlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 	else if (nChar == VK_F5)
 	{
-		CAppManager::getSingleton().ReloadSkin();
+		SetMsgHandled(TRUE);
+		SRUNONUI(
+			CAppManager::getSingleton().RefreshSkin();
+		);
 	}
 }
 
-LRESULT CViewDlg::OnLoadSkin(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL &bHandled)
-{
-	CAppManager::getSingleton().m_bNewSkin = TRUE;
-	return 0;
-}
+
+

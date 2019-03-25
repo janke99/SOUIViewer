@@ -3,7 +3,7 @@
 class CViewDlg: public SHostWnd
 {
 public:
-	explicit CViewDlg(LPCTSTR pszResName);
+	explicit CViewDlg(LPCTSTR pszResName, BOOL bIsMain = FALSE);
 	~CViewDlg();
 
 	int OnCreate(LPCREATESTRUCT lpCreateStruct);
@@ -15,7 +15,8 @@ public:
 	void OnSize(UINT nType, CSize size);
 	void OnDropFiles(HDROP hDropInfo);
 	void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
-	LRESULT OnLoadSkin(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL &bHandled);
+protected:
+	virtual void OnFinalMessage(HWND hWnd);
 protected:
 	//souiœ˚œ¢
 	EVENT_MAP_BEGIN()
@@ -33,11 +34,11 @@ protected:
 		MSG_WM_SIZE(OnSize)
 		MSG_WM_DROPFILES(OnDropFiles)
 		MSG_WM_KEYDOWN(OnKeyDown)
-		MESSAGE_HANDLER(MSG_LOADSKIN, OnLoadSkin)
 		CHAIN_MSG_MAP(SHostWnd)
 		REFLECT_NOTIFICATIONS_EX()
 	END_MSG_MAP()
 private:
 	BOOL			m_bLayoutInited;
+	BOOL			m_bIsMain;
 };
 
