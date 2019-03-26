@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "ViewDlg.h"
 #include "../AppManager.h"
-#include <event/NotifyCenter.h>
-
 
 CViewDlg::CViewDlg(LPCTSTR pszResName, BOOL bIsMain)
 	:SHostWnd(pszResName)

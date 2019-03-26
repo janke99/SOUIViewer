@@ -64,7 +64,18 @@ BOOL CAppManager::LoadSkin(LPCTSTR lpcSkin)
 	m_Dlgs.clear();
 	// 释放ResProvider
 	if (m_pResProvider)
+	{
+		// TODO: 参考SOUIEditer自定义加载
+		CAutoRefPtr<SStylePool>		mStylePool; /**<局部style pool*/
+		GETSTYLEPOOLMGR->PopStylePool(mStylePool);
+		if (mStylePool && mStylePool->GetCount()) mStylePool->RemoveAll();
+
+		CAutoRefPtr<SSkinPool>		pSkinPool;  /**<局部skin pool*/
+		GETSKINPOOLMGR->PopSkinPool(pSkinPool);
+		if (pSkinPool && pSkinPool->GetCount()) pSkinPool->RemoveAll();
+
 		m_AppUI->RemoveResProvider(m_pResProvider);
+	}
 
 	CAutoRefPtr<IResProvider>   pResProvider;
 	BOOL	bLoaded = FALSE;
@@ -72,7 +83,6 @@ BOOL CAppManager::LoadSkin(LPCTSTR lpcSkin)
 	bLoaded = pResProvider->Init((LPARAM)strPath.c_str(), 0);
 	SASSERT(bLoaded);
 
-	m_AppUI->InitXmlNamedID(namedXmlID, ARRAYSIZE(namedXmlID), TRUE);
 	m_AppUI->AddResProvider(pResProvider);
 
 	pugi::xml_document xmlDoc;
@@ -123,6 +133,8 @@ BOOL CAppManager::LoadDefaultSkin()
 
 	m_AppUI->InitXmlNamedID(namedXmlID, ARRAYSIZE(namedXmlID), TRUE);
 	m_AppUI->AddResProvider(pResProvider);
+
+	m_pOldUiDef = SUiDef::getSingleton().GetUiDef();
 
 	m_dlgMain = new CViewDlg(_T("LAYOUT:XML_MAINWND"), TRUE);
 	m_dlgMain->Create(GetActiveWindow());
