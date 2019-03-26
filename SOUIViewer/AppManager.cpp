@@ -212,3 +212,10 @@ BOOL CAppManager::ClearDlg(BOOL bDelete /*= TRUE*/)
 	return FALSE;
 }
 
+BOOL CAppManager::ShowDlgMain(int nShow)
+{
+	if (m_dlgMain)
+		return m_dlgMain->ShowWindow(nShow);
+	return FALSE;
+}
+

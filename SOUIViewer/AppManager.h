@@ -26,6 +26,8 @@ public:
 	BOOL		PopDlg(CViewDlg* pDlg, BOOL bCheckMain = TRUE);
 	// 清空窗口并释放
 	BOOL		ClearDlg(BOOL bDelete = TRUE);
+	// 显示主窗口
+	BOOL		ShowDlgMain(int nShow);
 private:
 	TString			m_strSkin;		// 皮肤完整路径
 	TString			m_strSkinPath;	// 皮肤目录

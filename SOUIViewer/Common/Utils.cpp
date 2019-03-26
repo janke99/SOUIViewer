@@ -44,6 +44,12 @@ std::string Utils::Format(const char *fmt, ...)
 	return strResult;
 }
 
+BOOL Utils::DirectoryExists(LPCTSTR lpDirectory)
+{
+	DWORD Code = ::GetFileAttributes(lpDirectory);
+	return (Code != INVALID_FILE_ATTRIBUTES) && ((Code & FILE_ATTRIBUTE_DIRECTORY) != 0);
+}
+
 std::wstring Utils::Format(const wchar_t *fmt, ...)
 {
 	std::wstring strResult = L"";

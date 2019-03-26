@@ -88,7 +88,15 @@ void CViewDlg::OnDropFiles(HDROP hDropInfo)
 		// 只取第一个
 		::DragQueryFile(hDropInfo, 0, szPath, _MAX_PATH);
 		SRUNONUI(
-			CAppManager::getSingleton().LoadSkin(szPath);
+			{
+				DWORD Code = ::GetFileAttributes(szPath);
+				if (Code == INVALID_FILE_ATTRIBUTES)
+					return;
+				if ((Code & FILE_ATTRIBUTE_DIRECTORY) != 0)
+					_tcscat((TCHAR*)szPath, _T("\\uires.idx"));
+				if (!CAppManager::getSingleton().LoadSkin(szPath))
+					CAppManager::getSingleton().ShowDlgMain(SW_SHOW);
+			}
 		);
 	}
 	::DragFinish(hDropInfo);
