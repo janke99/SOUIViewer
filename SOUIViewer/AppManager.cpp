@@ -87,23 +87,40 @@ BOOL CAppManager::LoadSkin(LPCTSTR lpcSkin)
 
 	pugi::xml_document xmlDoc;
 	TString strView = strPath + _T("\\view.xml");
-	if (!xmlDoc.load_file(strView.c_str(), pugi::parse_default, pugi::encoding_utf8)) return FALSE;
-
-	pugi::xml_node xmlRoot = xmlDoc.child(L"root");
-	if (!xmlRoot) return FALSE;
-	pugi::xml_node xmlView = xmlRoot.first_child();
-	while (xmlView)
+	if (xmlDoc.load_file(strView.c_str(), pugi::parse_default, pugi::encoding_utf8))
 	{
-		const pugi::char_t* pszPath = xmlView.attribute(_T("path")).value();
-		CViewDlg* pDlg = new CViewDlg(pszPath, FALSE);
+		// 加载view.xml定义LAYOUT
+		pugi::xml_node xmlRoot = xmlDoc.child(L"root");
+		if (!xmlRoot) return FALSE;
+		pugi::xml_node xmlView = xmlRoot.first_child();
+		while (xmlView)
+		{
+			const pugi::char_t* pszPath = xmlView.attribute(_T("path")).value();
+			CViewDlg* pDlg = new CViewDlg(pszPath, FALSE);
+			pDlg->Create(GetActiveWindow());
+			pDlg->SendMessage(WM_INITDIALOG);
+			pDlg->CenterWindow(pDlg->m_hWnd);
+			pDlg->ShowWindow(SW_SHOWNORMAL);
+			PushDlg(pDlg);
+
+			xmlView = xmlView.next_sibling();
+		}
+	}
+	else if (xmlDoc.load_file(strSkin.c_str(), pugi::parse_default, pugi::encoding_utf8))
+	{
+		// 加载第一个layout
+		pugi::xml_node xmlNode = xmlDoc.child(_T("resource")).child(_T("LAYOUT")).child(_T("file"));
+		if (!xmlNode) return FALSE;
+		TString szLayer = Utils::Format(_T("LAYOUT:%s"), xmlNode.attribute(_T("name")).as_string());
+		CViewDlg* pDlg = new CViewDlg(szLayer.c_str(), FALSE);
 		pDlg->Create(GetActiveWindow());
 		pDlg->SendMessage(WM_INITDIALOG);
 		pDlg->CenterWindow(pDlg->m_hWnd);
 		pDlg->ShowWindow(SW_SHOWNORMAL);
 		PushDlg(pDlg);
-
-		xmlView = xmlView.next_sibling();
 	}
+	else
+		return FALSE;
 
 	m_strSkin = strSkin;
 	m_strSkinPath = strPath;
@@ -133,8 +150,6 @@ BOOL CAppManager::LoadDefaultSkin()
 
 	m_AppUI->InitXmlNamedID(namedXmlID, ARRAYSIZE(namedXmlID), TRUE);
 	m_AppUI->AddResProvider(pResProvider);
-
-	m_pOldUiDef = SUiDef::getSingleton().GetUiDef();
 
 	m_dlgMain = new CViewDlg(_T("LAYOUT:XML_MAINWND"), TRUE);
 	m_dlgMain->Create(GetActiveWindow());

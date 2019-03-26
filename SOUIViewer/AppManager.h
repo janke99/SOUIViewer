@@ -36,7 +36,5 @@ private:
 	CAutoRefPtr<IResProvider> m_pResProvider;		//工程的UI提供者
 	std::vector<CViewDlg*>	m_Dlgs;	// Dlg列表
 	CViewDlg*		m_dlgMain;		// 主窗口
-	CAutoRefPtr<IUiDefInfo>		m_pOldUiDef;//默认皮肤的UiDef
-
 };
 
