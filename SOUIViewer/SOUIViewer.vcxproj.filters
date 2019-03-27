@@ -77,6 +77,9 @@
     <ClCompile Include="Control\SSkinMutiFrameImg.cpp">
       <Filter>Control</Filter>
     </ClCompile>
+    <ClCompile Include="Adapter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SOUIViewer.rc">
@@ -143,6 +146,9 @@
     </ClInclude>
     <ClInclude Include="Control\SSkinMutiFrameImg.h">
       <Filter>Control</Filter>
+    </ClInclude>
+    <ClInclude Include="Adapter.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

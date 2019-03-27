@@ -15,6 +15,9 @@ public:
 	void OnSize(UINT nType, CSize size);
 	void OnDropFiles(HDROP hDropInfo);
 	void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
+
+	// ±È¿˙≤È’“Class
+	void FindChildByClass(SArray<SWindow*> &pList, SWindow* pWindow, LPCTSTR pszClass, int nDeep = -1);
 protected:
 	virtual void OnFinalMessage(HWND hWnd);
 protected:

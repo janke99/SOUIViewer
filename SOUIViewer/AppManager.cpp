@@ -17,8 +17,6 @@ CAppManager::CAppManager(HINSTANCE hInstance)
 
 	TCHAR szCurrentDir[MAX_PATH + 1] = { 0 };
 	GetCurrentDirectory(MAX_PATH, szCurrentDir);
-	LPTSTR lpInsertPos = _tcsrchr(szCurrentDir, _T('\\'));
-	_tcscpy(lpInsertPos, _T("\\"));
 	m_AppPath = szCurrentDir;
 }
 
@@ -134,19 +132,11 @@ BOOL CAppManager::LoadDefaultSkin()
 	CAutoRefPtr<IResProvider>   pResProvider;
 	BOOL	bLoaded = FALSE;
 
-#ifdef _DEBUG		
-	{
-		CreateResProvider(RES_FILE, (IObjRef**)&pResProvider);
-		bLoaded = pResProvider->Init((LPARAM)_T("uires"), 0);
-		SASSERT(bLoaded);
-	}
-#else
 	{
 		CreateResProvider(RES_PE, (IObjRef**)&pResProvider);
 		bLoaded = pResProvider->Init((WPARAM)m_hInstance, 0);
 		SASSERT(bLoaded);
 	}
-#endif
 
 	m_AppUI->InitXmlNamedID(namedXmlID, ARRAYSIZE(namedXmlID), TRUE);
 	m_AppUI->AddResProvider(pResProvider);

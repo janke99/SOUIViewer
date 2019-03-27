@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ViewDlg.h"
 #include "../AppManager.h"
+#include "../Adapter.h"
 
 CViewDlg::CViewDlg(LPCTSTR pszResName, BOOL bIsMain)
 	:SHostWnd(pszResName)
@@ -25,6 +26,18 @@ BOOL CViewDlg::OnInitDialog(HWND wndFocus, LPARAM lInitParam)
 	ModifyStyleEx(0, WS_EX_ACCEPTFILES, 0);
 	if (!m_bIsMain)
 		m_hostAttr.SetAttribute(_T("wndType"), _T("normal"), FALSE);
+
+	// ≥ı ºªØ…Ë÷√SMCListView
+	SArray<SWindow*> pList;
+	FindChildByClass(pList, this, SMCListView::GetClassName());
+	for (int i = 0; i < pList.GetCount(); i++)
+	{
+		SWindow* pWindow = pList[i];
+		SMCListView *pLstViewFlex = static_cast<SMCListView*>(pWindow);
+		IMcAdapter *iAdpter = new CMcAdapter;
+		pLstViewFlex->SetAdapter(iAdpter);
+		iAdpter->Release();
+	}
 
 	m_bLayoutInited = TRUE;
 	return 0;
@@ -118,5 +131,29 @@ void CViewDlg::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 }
 
+void CViewDlg::FindChildByClass(SArray<SWindow*> &pList, SWindow* pWindow, LPCTSTR pszClass, int nDeep /*= -1*/)
+{
+	if (!pWindow || !pszClass || nDeep == 0) return;
+
+	SWindow *pChild = pWindow->GetWindow(GSW_FIRSTCHILD);
+	while (pChild)
+	{
+		if (pChild->IsClass(pszClass))
+			pList.Add(pChild);
+		pChild = pChild->GetWindow(GSW_NEXTSIBLING);
+	}
+
+	if (nDeep > 0) nDeep--;
+	if (nDeep == 0) return;
+
+	pChild = pWindow->GetWindow(GSW_FIRSTCHILD);
+	while (pChild)
+	{
+		FindChildByClass(pList, pChild, pszClass, nDeep);
+		pChild = pChild->GetWindow(GSW_NEXTSIBLING);
+	}
+
+	return;
+}
 
 

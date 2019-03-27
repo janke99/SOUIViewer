@@ -190,6 +190,7 @@
     <Text Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adapter.cpp" />
     <ClCompile Include="AppManager.cpp" />
     <ClCompile Include="Common\Utils.cpp" />
     <ClCompile Include="Control\gif\SGifPlayer.cpp" />
@@ -214,6 +215,7 @@
     <ResourceCompile Include="SOUIViewer.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adapter.h" />
     <ClInclude Include="AppManager.h" />
     <ClInclude Include="Common\CmdLine.h" />
     <ClInclude Include="Common\Singleton.h" />
