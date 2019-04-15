@@ -25,7 +25,11 @@ BOOL CViewDlg::OnInitDialog(HWND wndFocus, LPARAM lInitParam)
 {
 	ModifyStyleEx(0, WS_EX_ACCEPTFILES, 0);
 	if (!m_bIsMain)
+	{
 		m_hostAttr.SetAttribute(_T("wndType"), _T("normal"), FALSE);
+		ModifyStyle(0, WS_SYSMENU, 0);
+		ModifyStyleEx(0, WS_EX_APPWINDOW, 0);
+	}
 
 	// ≥ı ºªØ…Ë÷√SMCListView
 	SArray<SWindow*> pList;
