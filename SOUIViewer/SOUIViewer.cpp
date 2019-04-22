@@ -3,15 +3,7 @@
 
 #include "stdafx.h"
 #include "AppManager.h"
-#include "Control/SMatrixWindow.h"
-#include "Control/SImageMaskWnd.h"
-#include "Control/gif/SGifPlayer.h"
-#include "Control/gif/SSkinAPNG.h"
-#include "Control/gif/SSkinGif.h"
-#include "Control/SVscrollbar.h"
-#include "Control/SSkinNewScrollBar.h"
-#include "Control/SIECtrl.h"
-#include "Control/SImageEx.h"
+#include "Control/include.h"
 //从PE文件加载，注意从文件加载路径位置
 #define RES_TYPE 0
 //#define SYSRES_TYPE 0
@@ -71,6 +63,7 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		theApp->RegisterWindowClass<SImageMaskWnd>();//注册SImageMaskWnd
 		theApp->RegisterWindowClass<SIECtrl>();
 		theApp->RegisterWindowClass<SImageEx>();
+		theApp->RegisterWindowClass<SRadioBox2>();
 
 		//加载系统资源
 		HMODULE hSysResource = LoadLibrary(SYS_NAMED_RESOURCE);

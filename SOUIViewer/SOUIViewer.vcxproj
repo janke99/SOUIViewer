@@ -201,6 +201,7 @@
     <ClCompile Include="Control\SImageEx.cpp" />
     <ClCompile Include="Control\SImageMaskWnd.cpp" />
     <ClCompile Include="Control\SMatrixWindow.cpp" />
+    <ClCompile Include="Control\SRadioBox2.cpp" />
     <ClCompile Include="Control\SSkinMutiFrameImg.cpp" />
     <ClCompile Include="Dialog\ViewDlg.cpp" />
     <ClCompile Include="SOUIViewer.cpp" />
@@ -225,11 +226,13 @@
     <ClInclude Include="Control\gif\SGifPlayer.h" />
     <ClInclude Include="Control\gif\SSkinAPNG.h" />
     <ClInclude Include="Control\gif\SSkinGif.h" />
+    <ClInclude Include="Control\include.h" />
     <ClInclude Include="Control\SDocHostUIHandler.h" />
     <ClInclude Include="Control\SIECtrl.h" />
     <ClInclude Include="Control\SImageEx.h" />
     <ClInclude Include="Control\SImageMaskWnd.h" />
     <ClInclude Include="Control\SMatrixWindow.h" />
+    <ClInclude Include="Control\SRadioBox2.h" />
     <ClInclude Include="Control\SSkinMutiFrameImg.h" />
     <ClInclude Include="Control\SSkinNewScrollBar.h" />
     <ClInclude Include="Control\SVscrollbar.h" />
