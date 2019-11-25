@@ -50,8 +50,14 @@
     <ClCompile Include="AppManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Control\SMatrixWindow.cpp">
+    <ClCompile Include="Control\SIECtrl.cpp">
       <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Control\SDocHostUIHandler.cpp">
+      <Filter>Control</Filter>
+    </ClCompile>
+    <ClCompile Include="Adapter.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Control\gif\SGifPlayer.cpp">
       <Filter>Control\gif</Filter>
@@ -62,26 +68,8 @@
     <ClCompile Include="Control\gif\SSkinGif.cpp">
       <Filter>Control\gif</Filter>
     </ClCompile>
-    <ClCompile Include="Control\SImageMaskWnd.cpp">
-      <Filter>Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Control\SIECtrl.cpp">
-      <Filter>Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Control\SImageEx.cpp">
-      <Filter>Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Control\SDocHostUIHandler.cpp">
-      <Filter>Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Control\SSkinMutiFrameImg.cpp">
-      <Filter>Control</Filter>
-    </ClCompile>
-    <ClCompile Include="Adapter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Control\SRadioBox2.cpp">
-      <Filter>Control</Filter>
+    <ClCompile Include="Control\gif\SSkinPNGX.cpp">
+      <Filter>Control\gif</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -114,40 +102,16 @@
     <ClInclude Include="Common\CmdLine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Control\SMatrixWindow.h">
-      <Filter>Control</Filter>
-    </ClInclude>
-    <ClInclude Include="Control\gif\SAniImgFrame.h">
-      <Filter>Control\gif</Filter>
-    </ClInclude>
-    <ClInclude Include="Control\gif\SGifPlayer.h">
-      <Filter>Control\gif</Filter>
-    </ClInclude>
-    <ClInclude Include="Control\gif\SSkinAPNG.h">
-      <Filter>Control\gif</Filter>
-    </ClInclude>
-    <ClInclude Include="Control\gif\SSkinGif.h">
-      <Filter>Control\gif</Filter>
-    </ClInclude>
     <ClInclude Include="Control\SVscrollbar.h">
       <Filter>Control</Filter>
     </ClInclude>
     <ClInclude Include="Control\SSkinNewScrollBar.h">
       <Filter>Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\SImageMaskWnd.h">
-      <Filter>Control</Filter>
-    </ClInclude>
     <ClInclude Include="Control\SIECtrl.h">
       <Filter>Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\SImageEx.h">
-      <Filter>Control</Filter>
-    </ClInclude>
     <ClInclude Include="Control\SDocHostUIHandler.h">
-      <Filter>Control</Filter>
-    </ClInclude>
-    <ClInclude Include="Control\SSkinMutiFrameImg.h">
       <Filter>Control</Filter>
     </ClInclude>
     <ClInclude Include="Adapter.h">
@@ -156,8 +120,20 @@
     <ClInclude Include="Control\include.h">
       <Filter>Control</Filter>
     </ClInclude>
-    <ClInclude Include="Control\SRadioBox2.h">
-      <Filter>Control</Filter>
+    <ClInclude Include="Control\gif\SGifPlayer.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinAni.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinAPNG.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinGif.h">
+      <Filter>Control\gif</Filter>
+    </ClInclude>
+    <ClInclude Include="Control\gif\SSkinPNGX.h">
+      <Filter>Control\gif</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -191,5 +167,10 @@
     <CustomBuild Include="uires\uires.idx">
       <Filter>SoUI Resource</Filter>
     </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="SOUIViewer.exe.manifest">
+      <Filter>Resource Files</Filter>
+    </Manifest>
   </ItemGroup>
 </Project>

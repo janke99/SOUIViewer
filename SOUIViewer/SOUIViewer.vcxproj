@@ -71,11 +71,13 @@
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <LinkIncremental>true</LinkIncremental>
+    <TargetName>SOUI3Viewer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)obj\$(Configuration)\$(ProjectName)\</IntDir>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
     <LinkIncremental>false</LinkIncremental>
+    <TargetName>SOUI3Viewer</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>$(Configuration)64\</IntDir>
@@ -93,7 +95,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SOUIPATH)\config;$(SOUIPATH)\components;$(SOUIPATH)\SOUI\include;$(SOUIPATH)\utilities\include;$(SOUIPATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SOUI3PATH)\config;$(SOUI3PATH)\components;$(SOUI3PATH)\SOUI\include;$(SOUI3PATH)\utilities\include;$(SOUI3PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;STRICT;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <BrowseInformation>true</BrowseInformation>
@@ -103,8 +105,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(SOUIPATH)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>utilitiesd.lib;souid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SOUI3PATH)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>utilitiesd.lib;soui3d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ResourceCompile>
@@ -119,7 +121,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>Level3</WarningLevel>
-      <AdditionalIncludeDirectories>$(SOUIPATH)\config;$(SOUIPATH)\components;$(SOUIPATH)\SOUI\include;$(SOUIPATH)\utilities\include;$(SOUIPATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SOUI3PATH)\config;$(SOUI3PATH)\components;$(SOUI3PATH)\SOUI\include;$(SOUI3PATH)\utilities\include;$(SOUI3PATH);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -127,8 +129,8 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>$(SOUIPATH)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>utilities.lib;soui.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SOUI3PATH)\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>utilities.lib;soui3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <ResourceCompile>
@@ -196,13 +198,9 @@
     <ClCompile Include="Control\gif\SGifPlayer.cpp" />
     <ClCompile Include="Control\gif\SSkinAPNG.cpp" />
     <ClCompile Include="Control\gif\SSkinGif.cpp" />
+    <ClCompile Include="Control\gif\SSkinPNGX.cpp" />
     <ClCompile Include="Control\SDocHostUIHandler.cpp" />
     <ClCompile Include="Control\SIECtrl.cpp" />
-    <ClCompile Include="Control\SImageEx.cpp" />
-    <ClCompile Include="Control\SImageMaskWnd.cpp" />
-    <ClCompile Include="Control\SMatrixWindow.cpp" />
-    <ClCompile Include="Control\SRadioBox2.cpp" />
-    <ClCompile Include="Control\SSkinMutiFrameImg.cpp" />
     <ClCompile Include="Dialog\ViewDlg.cpp" />
     <ClCompile Include="SOUIViewer.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -222,18 +220,14 @@
     <ClInclude Include="Common\Singleton.h" />
     <ClInclude Include="Common\Utils.h" />
     <ClInclude Include="config.h" />
-    <ClInclude Include="Control\gif\SAniImgFrame.h" />
     <ClInclude Include="Control\gif\SGifPlayer.h" />
+    <ClInclude Include="Control\gif\SSkinAni.h" />
     <ClInclude Include="Control\gif\SSkinAPNG.h" />
     <ClInclude Include="Control\gif\SSkinGif.h" />
+    <ClInclude Include="Control\gif\SSkinPNGX.h" />
     <ClInclude Include="Control\include.h" />
     <ClInclude Include="Control\SDocHostUIHandler.h" />
     <ClInclude Include="Control\SIECtrl.h" />
-    <ClInclude Include="Control\SImageEx.h" />
-    <ClInclude Include="Control\SImageMaskWnd.h" />
-    <ClInclude Include="Control\SMatrixWindow.h" />
-    <ClInclude Include="Control\SRadioBox2.h" />
-    <ClInclude Include="Control\SSkinMutiFrameImg.h" />
     <ClInclude Include="Control\SSkinNewScrollBar.h" />
     <ClInclude Include="Control\SVscrollbar.h" />
     <ClInclude Include="Dialog\ViewDlg.h" />
@@ -265,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="uires\image\soui.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Manifest Include="SOUIViewer.exe.manifest" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

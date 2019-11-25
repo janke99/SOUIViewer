@@ -21,7 +21,7 @@ void SGifPlayer::OnPaint( IRenderTarget *pRT )
 	__super::OnPaint(pRT);
 	if(m_aniSkin)
 	{		
-		m_aniSkin->Draw(pRT, GetWindowRect(),m_iCurFrame);
+		m_aniSkin->DrawByIndex(pRT, GetWindowRect(),m_iCurFrame);
 	}
 }
 
@@ -75,7 +75,7 @@ HRESULT SGifPlayer::OnAttrSkin( const SStringW & strValue, BOOL bLoading )
 	return bLoading?S_OK:S_FALSE;
 }
 
-CSize SGifPlayer::GetDesiredSize( LPCRECT /*pRcContainer*/ )
+CSize SGifPlayer::GetDesiredSize(int wid,int hei )
 {
 	CSize sz;
 	if(m_aniSkin) sz=m_aniSkin->GetSkinSize();

@@ -1,4 +1,4 @@
-// dui-demo.cpp : main source file
+﻿// dui-demo.cpp : main source file
 //
 
 #include "stdafx.h"
@@ -53,17 +53,13 @@ int WINAPI _tWinMain(HINSTANCE hInstance, HINSTANCE /*hPrevInstance*/, LPTSTR lp
 		SApplication *theApp = new SApplication(pRenderFactory, hInstance);
 
 		//向SApplication系统中注册由外部扩展的控件及SkinObj类
-		theApp->RegisterWindowClass<SMatrixWindow>();//
 		theApp->RegisterWindowClass<SGifPlayer>();//theApp中增加方法：RegisterWindowClass,替换RegisterWndFactory(TplSWindowFactory<SGifPlayer>())
 		theApp->RegisterSkinClass<SSkinGif>();//注册SkinGif
 		theApp->RegisterSkinClass<SSkinAPNG>();//注册SSkinAPNG
 		theApp->RegisterSkinClass<SSkinVScrollbar>();//注册纵向滚动条皮肤
 		theApp->RegisterSkinClass<SSkinNewScrollbar>();//注册纵向滚动条皮肤
 
-		theApp->RegisterWindowClass<SImageMaskWnd>();//注册SImageMaskWnd
 		theApp->RegisterWindowClass<SIECtrl>();
-		theApp->RegisterWindowClass<SImageEx>();
-		theApp->RegisterWindowClass<SRadioBox2>();
 
 		//加载系统资源
 		HMODULE hSysResource = LoadLibrary(SYS_NAMED_RESOURCE);

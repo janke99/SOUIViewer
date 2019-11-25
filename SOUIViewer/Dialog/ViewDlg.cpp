@@ -1,4 +1,4 @@
-#include "stdafx.h"
+ï»¿#include "stdafx.h"
 #include "ViewDlg.h"
 #include "../AppManager.h"
 #include "../Adapter.h"
@@ -31,7 +31,7 @@ BOOL CViewDlg::OnInitDialog(HWND wndFocus, LPARAM lInitParam)
 		ModifyStyleEx(0, WS_EX_APPWINDOW, 0);
 	}
 
-	// ³õÊ¼»¯ÉèÖÃSMCListView
+	// åˆå§‹åŒ–è®¾ç½®SMCListView
 	SArray<SWindow*> pList;
 	FindChildByClass(pList, this, SMCListView::GetClassName());
 	for (int i = 0; i < pList.GetCount(); i++)
@@ -56,7 +56,7 @@ void CViewDlg::OnClose()
 {
 	SetMsgHandled(FALSE);
 	CAppManager::getSingleton().PopDlg(this, TRUE);
-	if (IsWindow()) CSimpleWnd::DestroyWindow();
+	if (IsWindow()) SNativeWnd::DestroyWindow();
 }
 
 void CViewDlg::OnMaximize()
@@ -102,7 +102,7 @@ void CViewDlg::OnDropFiles(HDROP hDropInfo)
 	UINT uCount = ::DragQueryFile(hDropInfo, 0xFFFFFFFF, NULL, 0);
 	if (uCount > 0)
 	{
-		// Ö»È¡µÚÒ»¸ö
+		// åªå–ç¬¬ä¸€ä¸ª
 		::DragQueryFile(hDropInfo, 0, szPath, _MAX_PATH);
 		SRUNONUI(
 			{
